@@ -3,122 +3,211 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    
-    <link href="https://fonts.cdnfonts.com/css/schnoerkel-caps" rel="stylesheet"/>
-
-    <title>Ashley</title>
+    <title>Document</title>
   </head>
   <body>
     <style>
         :root{
-         
-          --ultra-violet: rgb(65, 0, 0);
---russian-violet: rgb(36, 21, 56);
---white: #ffffffff;
---antiflash-white: #ebebebff;
---sunglow: rgb(126, 97, 25);
---chocolate-cosmos: #49080dff;
+            --crimson-night: rgb(65, 0, 0);
+            --midnight-plum: rgb(36, 21, 56);
+            --snow-bright: #ffffff;
+            --fog-white: #6267c5a3;
+            --golden-earth: rgb(126, 97, 25);
+            --burnt-cherry: #49080d;
         }
         body{
-            background-color: var(--antiflash-white);
-        }
-        .gantz-section{
-         position: relative;
-         height: 500px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         text-align: center;
-         background:url("foto.jpg") no-repeat center center/cover;
-        }
-        .gantz-section:after{
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: black;
-          z-index: 1;
-        }
-        .gantz-text{
-          position: relative;
-          z-index: 2;
-        }
-        .gantz-text h1,
-        .gantz-text h3,
-        .gantz-text p{
-          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-          font-size: 60px;
-          font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--midnight-plum);
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
 
-          background: url("foto.jpg") no-repeat center center/cover;
-          -webkit-background-clip:text;
-          -webkit-text-fill-color:transparent;
-          background-clip: text;
-          letter-spacing: 5px;
-          
         }
-        
+
+        h1{
+            top: 50px;
+            position: relative;
+        }
+
+        .tabla-ciber{
+        top: 115px;
+            width: 90%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0px 4px 15px black;
+            background-color: var( --golden-earth);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tabla-ciber thead{
+            background-color: var(--crimson-night);
+            color: var( --midnight-plum);
+        }
+
+        .tabla-ciber th,
+        .tabla-ciber td{
+            padding: 14px 18px;
+            text-align: center;
+            border: 1px solid var(--fog-white);
+            font-size: 16px;
+        }
+        .tabla-ciber th{
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+    .tabla-ciber tr:nth-child(even) {
+        background-color: var(--crimson-night);
+        color: var( --midnight-plum);
+    }
+
+    .tabla-ciber tr:nth-child(odd) {
+        background-color: var( --golden-earth);
+        color: var(--crimson-night);
+    }
+
+    .tabla-ciber tr:hover {
+        background-color: var( --burnt-cherry);
+        color: var(--fog-white);
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+    .tabla-ciber img {
+        width: 70px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0px 2px 6px black;
+    }
     </style>
     <!--ESTA PARTE ES LA BARRA SOLAMENTE DEL COLOR QUE USTEDES DECIDAN, LA APARTE DEL "VAR"-->
-      <nav class="navbar navbar-light" style="background-color: var(--russian-violet);">
+      <nav class="navbar navbar-light" style="background-color: var(--midnight-plum);">
+    <table class="tabla-ciber" id="tablaCiberseguridad">
+        <thead>
+            <tr>
+                <th>Ataque</th>
+                <th>Descripcion</th>
+                <th>Impacto</th>
+                <th>Ejemplo</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        //El JSON (JavaScript, Object Notation) con la informacion sobre los ataques de ciberseguridad
+        //declaro la variable en forma CONST para que sea "global"
+        const ataques = [
+  //lo que sigue son los elementos de este json separados por comas, el final no se pone la come para decirle que ya acabo
+  {
+      //estos son los nombres de cada variable que voy a mandar llamar en el html para la tabla
+      "ataque": "Phishing", //se le agrega la coma para decir que continua
+      "descripcion": "Engaña al usuario para robar las credenciales mediante correos falsos.",
+      "impacto": "Robo de identidad, perdida de datos",
+      "ejemplo": "Correo falso de un banco solicitando datos.",
+      "imagen":"https://easydmarc.com/blog/wp-content/uploads/2021/09/Module-4-image-1024x768.png" //aqui buscan una imagen en google referente a eso, poner la liga, y como notan, aqui no hay coma al final porque fue la linea "final"
+  },
+  {
      
-        <div class="container">
-            <a class="navbar-brand" href="index.html" style="background: var(--ultra-violet);">Inicio</a>
-        
+      "ataque": "Malware", 
+      "descripcion":"Se refiere a cualquier programa, código o archivo diseñado intencionalmente para dañar, interrumpir o acceder sin autorización a sistemas informáticos, redes o dato",
+      "impacto": " pueden interrumpir las operaciones, robar datos confidenciales y causar importantes daños financieros y de reputación",
+      "ejemplo": "WannaCry (2017): Un ataque de ransomware a nivel mundial que cifró archivos en miles de ordenadores. ",
+      "imagen":"https://www.tarlogic.com/wp-content/uploads/2024/02/Tipos-de-malware-1200x900.webp",
+  },
+  {
+     
+     "ataque": "Vieus", 
+     "descripcion": "Un virus informático es un programa o código malicioso diseñado para autorreplicarse, infectar otros programas o archivos y propagarse de un dispositivo a otro, similar a cómo los virus biológicos se transmiten",
+     "impacto": "Problemas de funcionamiento: Causa interrupciones en el sistema, ralentiza el dispositivo o lo hace inoperable",
+     "ejemplo": "Mydoom: Un gusano que se propagó rápidamente por correo electrónico, causando costos significativos en 2004",
+     "imagen":"https://www.redseguridad.com/wp-content/uploads/sites/2/2021/05/virus-informatico-900x600.jpg",
+ },
+ {
+     
+     "ataque": "EORM", 
+     "descripcion": "Es un tipo de almacenamiento de datos donde la información solo se puede escribir una vez y luego se puede leer tantas veces como sea necesario, pero no se puede modificar ni eliminar. Se usa para garantizar la integridad y seguridad de los datos.",
+     "impacto": "Cumplimiento legal: Asegura que los registros no sean alterados, útil en sectores regulados. ",
+     "ejemplo": "Registros médicos o transacciones bancarias, donde la integridad de los datos debe ser garantizada a lo largo del tiempo.",
+     "imagen":"https://www.dragonjar.org/wp-content/uploads/2023/11/Worm-Programa-que-se-Replica-a-traves-de-Redes.jpg",
+ },
+ {
+     
+     "ataque": "DDOS", 
+     "descripcion": "Un ataque DDoS es un intento malintencionado de interrumpir el servicio de un servidor, red o servicio en línea al inundarlo con un volumen masivo de tráfico de datos desde múltiples dispositivos distribuidos (generalmente una botnet). El objetivo es hacer que el servicio sea inaccesible para los usuarios legítimos.",
+     "impacto": "Recursos consumidos: Agota los recursos del servidor, lo que aumenta los costos operativos.",
+     "ejemplo": "Un ataque DDoS podría afectar un sitio web de compras en línea durante una temporada de ventas, haciendo que los clientes no puedan acceder al sitio y perdiendo potenciales ventas.",
+     "imagen":"https://www.akamai.com/site/es/images/article/2023/what-is-a-ddos-attack-application-layer.png",
+ },
+ {
+     
+     "ataque": "Packet Sniffer", 
+     "descripcion": "Un packet sniffer es una herramienta de software o hardware que captura, analiza y registra los paquetes de datos que viajan por una red. Su propósito principal es observar y monitorear el tráfico de red para detectar problemas, analizar el rendimiento o, en casos malintencionados, espiar la información transmitida.",
+     "impacto": "Seguridad: Si un packet sniffer cae en manos equivocadas, puede capturar datos sensibles como contraseñas, información personal o financiera.",
+     "ejemplo": "Un packet sniffer puede ser usado por un administrador de red para diagnosticar problemas en la red, como lentitud en la transmisión de datos o pérdida de paquetes. Sin embargo, un atacante también podría usarlo para espiar el tráfico de red no cifrado y robar contraseñas o información personal.",
+     "imagen":"https://miro.medium.com/1*4mDm9iNlOIL5Y5G2yCf5Og.png",
+ },
+ {
+     
+     "ataque": "IP Spoofing", 
+     "descripcion": "El IP spoofing (suplantación de IP) es una técnica en la que un atacante falsifica la dirección IP de origen de un paquete de datos para hacer que parezca que proviene de otra fuente. Esto se hace para ocultar la identidad del atacante o para hacerse pasar por otro sistema de confianza.",
+     "impacto": "Ataques combinados: A menudo se utiliza en ataques DDoS, man-in-the-middle o de sesión hijacking.",
+     "ejemplo": "Un atacante puede enviar paquetes a un servidor haciéndose pasar por una IP confiable para acceder a servicios restringidos o para redirigir el tráfico hacia una dirección maliciosa.",
+     "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ9G_bSzXx_2osBNBS-ErVAC4BK4Jm9y5r5A&s",
+ },
+ {
+     
+     "ataque": "MITM (Man-in-the-Middle)", 
+     "descripcion": "El ataque Man-in-the-Middle (MITM) ocurre cuando un atacante se interpone en la comunicación entre dos partes (por ejemplo, entre un usuario y un sitio web) sin que ellos lo sepan. El atacante puede interceptar, leer, modificar o robar la información transmitida.",
+     "impacto": "Alteración de datos: Puede modificar la información transmitida (como cambiar datos de una transacción).",
+     "ejemplo": "En una red Wi-Fi pública sin cifrado, un atacante puede interceptar los datos que un usuario envía a un sitio web, como credenciales de acceso o datos bancarios.",
+     "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIp6m2UsNZMiiGS77HrAFtyyNTihy-PphJnA&s",
+ },
+ {
+     
+     "ataque": "Compromised Key Attack",
+     "descripcion": "Un ataque de clave comprometida ocurre cuando un atacante obtiene acceso no autorizado a una clave criptográfica (pública o privada), permitiéndole descifrar información confidencial, falsificar firmas digitales o hacerse pasar por una entidad legítima.",
+     "impacto": "Puede resultar en la pérdida de confidencialidad de la información, acceso no autorizado a sistemas protegidos, falsificación de identidad, manipulación de datos y ruptura de la integridad en canales de comunicación cifrados.",
+     "ejemplo": "Un atacante obtiene la clave privada de una organización debido a una mala gestión del almacenamiento de claves. Luego utiliza esa clave para descifrar comunicaciones cifradas o para firmar software malicioso haciéndolo parecer legítimo.",
+     "imagen":"https://www.researchgate.net/publication/346986587/figure/fig36/AS:11431281083712475@1662718813236/An-Compromised-Key-Attack-the-attacker-first-steal-the-secret-key-of-the-security.ppm",
+ },
+ {
+     
+     "ataque": "DNS Spoofing",
+     "descripcion": "El DNS Spoofing es un ataque en el que un actor malicioso altera las respuestas del sistema de nombres de dominio (DNS), redirigiendo a los usuarios desde sitios web legítimos hacia sitios falsificados o maliciosos sin que ellos lo noten.",
+     "impacto": "Puede llevar a la filtración de credenciales, robo de identidad, instalación de malware, interceptación de datos sensibles y pérdida de confianza en los servicios afectados. También puede ser utilizado para realizar ataques más complejos como el phishing o el man-in-the-middle.",
+     "ejemplo": "Un atacante compromete la caché DNS de un servidor resolviendo 'www.banco-ejemplo.com' hacia la IP de un sitio falso que imita al banco. Los usuarios que intentan acceder al banco legítimo son redirigidos al sitio fraudulento donde ingresan sus credenciales, las cuales son robadas.",
+     "imagen":"https://www.imperva.com/learn/wp-content/uploads/sites/13/2019/01/DNS-spoofing.jpg",
+ },
+ {
+     
+     "ataque": "Rootkit",
+     "descripcion": "Un rootkit es un tipo de software malicioso diseñado para ocultar la presencia de ciertos procesos o programas en un sistema, permitiendo que un atacante mantenga el acceso privilegiado de forma encubierta durante largos períodos de tiempo.",
+     "impacto": "Permite al atacante tener control completo del sistema comprometido sin ser detectado. Esto puede llevar al robo de información, instalación de otros tipos de malware, modificación o destrucción de archivos, y uso del sistema para lanzar otros ataques.",
+     "ejemplo": "Después de explotar una vulnerabilidad en un servidor, un atacante instala un rootkit que oculta sus herramientas y conexiones. El administrador del sistema no detecta la intrusión, mientras el atacante sigue teniendo acceso remoto con privilegios de administrador.",
+     "imagen":"https://cyberhoot.com/wp-content/uploads/2021/04/what-is-a-rootkit-blog.png",
+ }
+ 
+];
+        //Con esta linea voy a hacer referencia al "tbody" que se quedo en la parte de la tabla
+        const cuerpoTabla = document.querySelector ("#tablaCiberseguridad tbody");
+        ataques.forEach(ataque=>{//con esta linea, el foreach recorre todo el scrip
+        const fila = document.createElement ("tr");
 
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="nav navbar-nav">
-            <li class="nav-item dropdown">
-                 <a class="nav-link dropdown-toggle" href="unidad1.html" 
-                 id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                 aria-expanded="false" style="color: #fffdf7ff;">UNIDAD 1 Ciberseguridad</a>
-                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="./index.html">Conceptos</a><br>
-                    <a class="dropdown-item" href="./index2.html">Ataques</a><br>
-                    <a class="dropdown-item" href="./index3.html">Proteccion</a>
-                 </div>
-            </li>
-        </ul>
-          <ul class="nav navbar-nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="unidad1.html"
-              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false" style="color: #fffdf7ff;">UNIDAD 2</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="./index4.html">Conceptos</a></br>
-                <a class="dropdown-item" href="./index5.html">Ataques</a></br>
-                <a class="dropdown-item" href="./index6.html">Proteccion</a></br>
-              </div>
-            </li> 
-          </ul>
-            <ul class="nav navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="unidad1.html"
-                id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" style="color: white;">UNIDAD 3</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="./index7.html">Conceptos</a></br>
-                  <a class="dropdown-item" href="./index8.html">Ataques</a></br>
-                  <a class="dropdown-item" href="./index9.html">Proteccion</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-    <div class="jumbotron"style="background-color: var(--ultra-violet); color: var 
-    (--#49080dff);"> -
-      <div class="gantz-text">
-        <h1>Alexia Cruz</h1>
-        <h3>Programacion 5toA</h3>
-        <p>Construye Paginas Web</p>
+        fila.innerHTML =
 
-      </div>
-    </div>
+         `<td>${ataque.ataque}</td>
+        <td>${ataque.descripcion}</td>
+        <td>${ataque.impacto}</td>
+        <td>${ataque.ejemplo}</td>
+        <td><img src="${ataque.imagen}" alt="${ataque.ataque}"></td>`;
+
+        cuerpoTabla.appendChild(fila);
+        });
+    </script>
   </body>
-</html>
+  </html>
